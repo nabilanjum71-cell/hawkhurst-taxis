@@ -1,0 +1,72 @@
+# netlify.toml — Hawkhurst Taxis
+# Performance + SEO configuration for Netlify deployment
+
+[build]
+  publish = "."
+
+# ─── Redirect www → non-www (canonical) ───
+[[redirects]]
+  from = "https://www.hawkhursttaxis.co.uk/*"
+  to = "https://hawkhursttaxis.co.uk/:splat"
+  status = 301
+  force = true
+
+# ─── Redirect old hawkhurtairporttaxis.co.uk if needed ───
+[[redirects]]
+  from = "https://www.hawkhurtairporttaxis.co.uk/*"
+  to = "https://hawkhursttaxis.co.uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://hawkhurtairporttaxis.co.uk/*"
+  to = "https://hawkhursttaxis.co.uk/:splat"
+  status = 301
+  force = true
+
+# ─── Security + SEO headers ───
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(self)"
+
+# ─── Cache static assets aggressively ───
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ─── HTML: short cache so updates show fast ───
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
