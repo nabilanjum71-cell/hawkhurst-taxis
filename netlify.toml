@@ -14,13 +14,13 @@
 # ─── Redirect old hawkhurtairporttaxis.co.uk if needed ───
 [[redirects]]
   from = "https://www.hawkhurtairporttaxis.co.uk/*"
-  to = "https://hawkhursttaxis.co.uk/:splat"
+  to = "https://hawkhurtairporttaxis.co.uk/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://hawkhurtairporttaxis.co.uk/*"
-  to = "https://hawkhursttaxis.co.uk/:splat"
+  from = "https://www.hawkhurtairporttaxis.co.uk/*"
+  to = "https://hawkhurtairporttaxis.co.uk/:splat"
   status = 301
   force = true
 
