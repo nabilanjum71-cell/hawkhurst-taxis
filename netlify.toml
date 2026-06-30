@@ -6,19 +6,6 @@
 
 # ─── Redirect www → non-www (canonical) ───
 [[redirects]]
-  from = "https://www.hawkhursttaxis.co.uk/*"
-  to = "https://hawkhursttaxis.co.uk/:splat"
-  status = 301
-  force = true
-
-# ─── Redirect old hawkhurtairporttaxis.co.uk if needed ───
-[[redirects]]
-  from = "https://www.hawkhurtairporttaxis.co.uk/*"
-  to = "https://hawkhurtairporttaxis.co.uk/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "https://www.hawkhurtairporttaxis.co.uk/*"
   to = "https://hawkhurtairporttaxis.co.uk/:splat"
   status = 301
