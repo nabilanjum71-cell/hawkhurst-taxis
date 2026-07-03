@@ -1,10 +1,3 @@
-# robots.txt — Hawkhurst Taxis
-# https://hawkhurtairporttaxis.co.uk/
-
 User-agent: *
 Allow: /
-
-# Sitemap location
 Sitemap: https://hawkhurtairporttaxis.co.uk/sitemap.xml
-
-# Block no pages — we want everything indexed
