@@ -111,14 +111,37 @@
       <div class="card">
         <h3 style="margin-bottom:.3em">Send a booking request</h3>
         <p style="font-size:.88rem;margin-bottom:1.2em">Fill in your details and we'll reply with your confirmed fixed price.</p>
-        <form name="booking" method="POST" data-netlify="true" action="/thank-you" style="display:flex;flex-direction:column;gap:.85em">
-          <label style="font-size:.82rem;font-weight:700">Full name<input name="name" required placeholder="Your name" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
-          <label style="font-size:.82rem;font-weight:700">Phone number<input name="phone" required placeholder="07xxx xxxxxx" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
-          <label style="font-size:.82rem;font-weight:700">Pickup address<input name="pickup" required placeholder="Full address inc. postcode" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
-          <label style="font-size:.82rem;font-weight:700">Destination<select name="dest" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"><option>Gatwick Airport — £97</option><option>Heathrow Airport — £133</option><option>Stansted Airport — £130</option><option>Luton Airport — £170</option><option>London City Airport — £130</option><option>Tunbridge Wells — £47</option><option>Tonbridge — £50</option><option>Brighton — £120</option><option>Portsmouth — £200</option><option>Southampton — £220</option><option>London (congestion charge may apply) — £140+</option></select></label>
-          <label style="font-size:.82rem;font-weight:700">Travel date &amp; time<input name="when" placeholder="e.g. 15 July 2026, 4:30am" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
-          <button class="btn btn-dark btn-block" type="submit">Send Request →</button>
-        </form>
+        <form id="bookingForm" method="POST" action="https://formspree.io/f/meebpyga" style="display:flex;flex-direction:column;gap:.85em">
+  <label style="font-size:.82rem;font-weight:700">Full name<input name="name" required placeholder="Your name" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
+  <label style="font-size:.82rem;font-weight:700">Phone number<input name="phone" required placeholder="07xxx xxxxxx" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
+  <label style="font-size:.82rem;font-weight:700">Pickup location<input name="pickup" required placeholder="e.g. 12 High Street, Hawkhurst OR Gatwick Airport" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
+  <label style="font-size:.82rem;font-weight:700">Drop-off location<input name="dropoff" required placeholder="e.g. Gatwick Airport OR 12 High Street, Hawkhurst" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
+  <label style="font-size:.82rem;font-weight:700">Flight number <span style="font-weight:400">(if applicable)</span><input name="flight" placeholder="e.g. BA1234" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
+  <label style="font-size:.82rem;font-weight:700">Travel date &amp; time<input name="when" required placeholder="e.g. 15 July 2026, 4:30am" style="display:block;width:100%;padding:.65em .8em;margin-top:.3em;border:1px solid var(--line);border-radius:2px;font-size:1rem"></label>
+  <button class="btn btn-dark btn-block" type="submit">Send Request &#8594;</button>
+</form>
+
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+
+  const waNumber = "447808065494";
+  const msg = `New booking request:%0AName: ${data.get('name')}%0APhone: ${data.get('phone')}%0APickup: ${data.get('pickup')}%0ADrop-off: ${data.get('dropoff')}%0AFlight: ${data.get('flight') || 'N/A'}%0ADate/Time: ${data.get('when')}`;
+  window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
+
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(() => {
+    window.location.href = '/thank-you.html';
+  }).catch(() => {
+    window.location.href = '/thank-you.html';
+  });
+});
+</script>
       </div>
     </div>
   </div>
@@ -159,4 +182,6 @@
 <script src="/js/main.js"></script>
 </body>
 </html>
+
+
 
