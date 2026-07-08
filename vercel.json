@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/gatwick-taxi.html", "destination": "/gatwick-taxi", "permanent": true },
+    { "source": "/luton-taxi.html", "destination": "/luton-taxi", "permanent": true },
+    { "source": "/stansted-taxi.html", "destination": "/stansted-taxi", "permanent": true },
+    { "source": "/heathrow-taxi.html", "destination": "/heathrow-taxi", "permanent": true },
+    { "source": "/london-city-taxi.html", "destination": "/london-city-taxi", "permanent": true }
+  ]
+}
