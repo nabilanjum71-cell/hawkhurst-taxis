@@ -2,12 +2,6 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.hawkhurtairporttaxis.co.uk" }],
-      "destination": "https://hawkhurtairporttaxis.co.uk/:path*",
-      "permanent": true
-    },
     { "source": "/gatwick-taxi.html", "destination": "/gatwick-taxi", "permanent": true },
     { "source": "/luton-taxi.html", "destination": "/luton-taxi", "permanent": true },
     { "source": "/stansted-taxi.html", "destination": "/stansted-taxi", "permanent": true },
