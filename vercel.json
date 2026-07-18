@@ -14,6 +14,7 @@
     { "source": "/heathrow-taxi.html", "destination": "/heathrow-taxi", "permanent": true },
     { "source": "/london-city-taxi.html", "destination": "/london-city-taxi", "permanent": true },
     { "source": "/areas-we-cover.html", "destination": "/areas-we-cover", "permanent": true },
+    { "source": "/tunbridge-wells-taxi.html", "destination": "/tunbridge-wells-taxi", "permanent": true },
     { "source": "/blog/early-morning-airport-taxi-tips-kent.html", "destination": "/blog/early-morning-airport-taxi-tips-kent", "permanent": true },
     { "source": "/blog/gatwick-north-vs-south-terminal-guide.html", "destination": "/blog/gatwick-north-vs-south-terminal-guide", "permanent": true },
     { "source": "/blog/hawkhurst-to-heathrow-m25-traffic-guide.html", "destination": "/blog/hawkhurst-to-heathrow-m25-traffic-guide", "permanent": true },
